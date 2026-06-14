@@ -7,26 +7,25 @@
 - 用 GitHub 账号登录（免费额度 750 小时/月）
 
 ### 2. 推送代码到 GitHub
-```bash
-git init
-git add server/
-git commit -m "添加中转服务器"
-git push origin main
-```
+把你 server/ 目录推送到 GitHub 仓库
 
 ### 3. 一键部署
 在 Render 控制台 → New Web Service → 选择你的 GitHub 仓库 →
-填入以下环境变量（敏感信息手动填）：
+填入以下环境变量（替换为你的真实值）：
 
-| 变量 | 值 |
-|------|-----|
-| `API_KEY` | `49b21a17b98efad1166961a1ec4724058dede9652357f4c3f10018c7c024b2b7` |
-| `ADMIN_KEY` | `678355bba4144b4446975b5ad8ed8127` |
-| `SMTP_USER` | `agbzzvee51g@foxmail.com` |
-| `SMTP_PASS` | `ijlhidpydirdebeb` |
-| `GITHUB_TOKEN` | `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` |
-| `GITEE_TOKEN` | `e5114aa8afca63e7c13a35d3dfdc701b` |
-| `SECRET_KEY` | `2f8318055a2a751e983e849d2fcd8b0fc980207d28f15e5fa909f6b6d946547d` |
+| 变量 | 说明 |
+|------|------|
+| `API_KEY` | 客户端-服务器共享密钥 |
+| `ADMIN_KEY` | 管理接口密钥 |
+| `SMTP_USER` | QQ邮箱地址 |
+| `SMTP_PASS` | QQ邮箱授权码 |
+| `GITHUB_TOKEN` | GitHub Personal Access Token |
+| `GITEE_TOKEN` | Gitee Personal Access Token |
+| `SECRET_KEY` | Flask 内部密钥 |
+| `SMTP_HOST` | smtp.qq.com |
+| `SMTP_PORT` | 465 |
+| `GITHUB_REPO` | youyu551572/drawinline |
+| `GITEE_REPO` | youyu551572/drawinline |
 
 Render 会给你一个域名如 `https://youyu-drawinline.onrender.com`
 
@@ -34,7 +33,7 @@ Render 会给你一个域名如 `https://youyu-drawinline.onrender.com`
 ```python
 # config.py
 API_SERVER_URL = "https://youyu-drawinline.onrender.com"
-API_KEY = "49b21a17b98efad1166961a1ec4724058dede9652357f4c3f10018c7c024b2b7"
+API_KEY = "你的API_KEY"  # 必须与服务器一致
 ```
 
 ---
