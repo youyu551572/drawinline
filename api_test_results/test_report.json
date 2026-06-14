@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Pollinations.ai (方法1)",
+    "success": true,
+    "result": "api_test_results\\pollinations_v1_1764042078.png",
+    "timestamp": 1764042078.4080064
+  },
+  {
+    "name": "Pollinations.ai (方法2)",
+    "success": true,
+    "result": "api_test_results\\pollinations_v2_1764042080.png",
+    "timestamp": 1764042080.4787614
+  },
+  {
+    "name": "Pollinations.ai (方法3)",
+    "success": true,
+    "result": "api_test_results\\pollinations_v3_1764042083.png",
+    "timestamp": 1764042083.2447472
+  },
+  {
+    "name": "Craiyon (DALL-E Mini)",
+    "success": false,
+    "result": "HTTP 403",
+    "timestamp": 1764042084.5952017
+  },
+  {
+    "name": "Hugging Face Inference",
+    "success": false,
+    "result": "HTTP 410: {\"error\":\"https://api-inference.huggingface.co is no longer supported. Please use https://router.hug",
+    "timestamp": 1764042086.185653
+  },
+  {
+    "name": "Replicate Free",
+    "success": false,
+    "result": "需要API Key - HTTP 403",
+    "timestamp": 1764042087.8518765
+  },
+  {
+    "name": "Stability AI Free",
+    "success": false,
+    "result": "需要API Key - HTTP 401",
+    "timestamp": 1764042089.4536004
+  },
+  {
+    "name": "OpenAI DALL-E (需要Key)",
+    "success": false,
+    "result": "需要API Key",
+    "timestamp": 1764042090.454043
+  },
+  {
+    "name": "DeepAI",
+    "success": false,
+    "result": "HTTP 401",
+    "timestamp": 1764042092.5217931
+  },
+  {
+    "name": "ArtBot",
+    "success": false,
+    "result": "无公开API",
+    "timestamp": 1764042093.5223997
+  },
+  {
+    "name": "NightCafe",
+    "success": false,
+    "result": "需要登录",
+    "timestamp": 1764042094.5227754
+  },
+  {
+    "name": "Lexica",
+    "success": false,
+    "result": "主要是搜索功能",
+    "timestamp": 1764042095.523802
+  }
+]

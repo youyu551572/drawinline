@@ -1,0 +1,5 @@
+Flask==3.0.*
+requests==2.31.*
+gunicorn==21.2.*
+mangum==0.17.*
+boto3==1.34.*

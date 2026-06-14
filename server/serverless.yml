@@ -1,0 +1,125 @@
+# serverless.yml - AWS Lambda + API Gateway + DynamoDB 部署配置
+# 安装: npm install -g serverless
+# 部署: serverless deploy
+
+service: youyu-drawinline
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: python3.11
+  region: us-east-1  # 改为你使用的区域
+  stage: prod
+  memorySize: 256
+  timeout: 10
+
+  # 环境变量（部署前替换为真实值）
+  environment:
+    API_KEY: ${env:API_KEY, 'change-me'}
+    ADMIN_KEY: ${env:ADMIN_KEY, ''}
+    # 使用 QQ SMTP（推荐，国内QQ邮箱送达率高）
+    SMTP_HOST: ${env:SMTP_HOST, 'smtp.qq.com'}
+    SMTP_PORT: ${env:SMTP_PORT, '465'}
+    SMTP_USER: ${env:SMTP_USER, ''}
+    SMTP_PASS: ${env:SMTP_PASS, ''}
+    # 或使用 Amazon SES（需先验证发件地址）
+    # USE_SES: 'true'
+    # SES_SENDER: ${env:SES_SENDER, 'noreply@yourdomain.com'}
+    # SES_REGION: ${env:SES_REGION, 'us-east-1'}
+    # DynamoDB 表名
+    DYNAMODB_TABLE_USERS: ${self:service}-users-${sls:stage}
+    DYNAMODB_TABLE_MEMBERS: ${self:service}-members-${sls:stage}
+    DYNAMODB_TABLE_CODES: ${self:service}-codes-${sls:stage}
+
+  # Lambda 需要的 IAM 权限
+  iam:
+    role:
+      statements:
+        # DynamoDB 读写
+        - Effect: Allow
+          Action:
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:DeleteItem
+            - dynamodb:Scan
+            - dynamodb:BatchWriteItem
+            - dynamodb:CreateTable
+            - dynamodb:DescribeTable
+          Resource:
+            - !GetAtt UsersTable.Arn
+            - !GetAtt MembersTable.Arn
+            - !GetAtt CodesTable.Arn
+        # SES 发送邮件（如果使用 SES）
+        - Effect: Allow
+          Action:
+            - ses:SendEmail
+            - ses:SendRawEmail
+          Resource: "*"
+
+functions:
+  api:
+    handler: lambda_handler.handler
+    events:
+      # API Gateway - 所有 /api/* 路由转发到 Lambda
+      - http:
+          path: /api/{proxy+}
+          method: any
+          cors: true
+      # 健康检查也走 API
+      - http:
+          path: /api/health
+          method: get
+          cors: true
+
+# DynamoDB 表（按需计费，免费套餐 25GB）
+resources:
+  Resources:
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_USERS}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: qq_number
+            AttributeType: S
+        KeySchema:
+          - AttributeName: qq_number
+            KeyType: HASH
+
+    MembersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_MEMBERS}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: qq_number
+            AttributeType: S
+        KeySchema:
+          - AttributeName: qq_number
+            KeyType: HASH
+
+    CodesTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: ${self:provider.environment.DYNAMODB_TABLE_CODES}
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+          - AttributeName: qq_number
+            AttributeType: S
+        KeySchema:
+          - AttributeName: qq_number
+            KeyType: HASH
+        # 验证码 5 分钟后自动过期删除
+        TimeToLiveSpecification:
+          AttributeName: expires_at
+          Enabled: true
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: false
+    slim: true
+    layer: true
