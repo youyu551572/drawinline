@@ -1,9 +1,0 @@
-{
-  "version": "3.0.5",
-  "notes": "1.修复无法注册登录问题。
-
-2.新增绘画数量线条排行榜
-
-3.新增共享图库，可以上传识别的优秀图片共享使用。",
-  "download_url": "https://github.com/youyu551572/drawinline/releases/download/v3.0.5/YouYu自动绘画.exe"
-}
