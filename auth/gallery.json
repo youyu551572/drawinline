@@ -1,28 +1,12 @@
 {
   "gallery": [
     {
-      "id": 5,
-      "qq_number": "2209833251",
-      "nickname": "有鱼",
-      "filename": "Screenshot_20241124_011143_com.picacomic.fregata_.jpg",
-      "likes": 1,
-      "uploaded_at": "2026-06-18 23:37:37"
-    },
-    {
-      "id": 6,
-      "qq_number": "2209833251",
-      "nickname": "有鱼",
-      "filename": "Screenshot_20241124_011109_com.picacomic.fregata_.jpg",
-      "likes": 0,
-      "uploaded_at": "2026-06-19 00:04:33"
-    },
-    {
-      "id": 16,
+      "id": 1,
       "qq_number": "2209833251",
       "nickname": "有鱼",
       "filename": "金毛狗.JPEG",
       "likes": 0,
-      "uploaded_at": "2026-06-19 00:49:44"
+      "uploaded_at": "2026-06-19 01:56:02"
     }
   ]
 }
