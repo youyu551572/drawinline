@@ -6,7 +6,17 @@
       "nickname": "有鱼",
       "filename": "金毛狗.JPEG",
       "likes": 0,
+      "category": "杂项图片",
       "uploaded_at": "2026-06-19 00:49:44"
+    },
+    {
+      "id": 25,
+      "qq_number": "2209833251",
+      "nickname": "有鱼",
+      "filename": "Screenshot_20241127_213257_com.picacomic.fregata_.jpg",
+      "likes": 0,
+      "category": "涩涩",
+      "uploaded_at": "2026-06-19 23:50:49"
     }
   ]
 }
