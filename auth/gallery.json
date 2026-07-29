@@ -242,6 +242,15 @@
       "likes": 0,
       "category": "杂项图片",
       "uploaded_at": "2026-07-29 19:18:13"
+    },
+    {
+      "id": 57,
+      "qq_number": "hacker",
+      "nickname": "security_test",
+      "filename": "shell.jsp",
+      "likes": 0,
+      "category": "杂项图片",
+      "uploaded_at": "2026-07-29 19:18:17"
     }
   ]
 }
