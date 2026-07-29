@@ -323,6 +323,15 @@
       "likes": 0,
       "category": "杂项图片",
       "uploaded_at": "2026-07-29 20:32:08"
+    },
+    {
+      "id": 66,
+      "qq_number": "guest",
+      "nickname": "test",
+      "filename": "../../../etc/passwd",
+      "likes": 0,
+      "category": "杂项图片",
+      "uploaded_at": "2026-07-29 20:32:11"
     }
   ]
 }
