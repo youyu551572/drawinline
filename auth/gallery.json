@@ -215,15 +215,6 @@
       "likes": 0,
       "category": "搞笑图片",
       "uploaded_at": "2026-07-29 16:13:02"
-    },
-    {
-      "id": 54,
-      "qq_number": "guest",
-      "nickname": "hacker",
-      "filename": "test.jpg",
-      "likes": 0,
-      "category": "杂项图片",
-      "uploaded_at": "2026-07-29 19:13:53"
     }
   ]
 }
