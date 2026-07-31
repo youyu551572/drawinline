@@ -197,15 +197,6 @@
       "likes": 0,
       "category": "搞笑图片",
       "uploaded_at": "2026-07-29 15:53:01"
-    },
-    {
-      "id": 52,
-      "qq_number": "guest",
-      "nickname": "测试用户",
-      "filename": "drop到此一游.jpg",
-      "likes": 0,
-      "category": "黑白线稿图",
-      "uploaded_at": "2026-07-29 16:03:02"
     }
   ]
 }
